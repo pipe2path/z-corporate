@@ -1,0 +1,482 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Z Company</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+
+    <!-- Stylesheets 
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="screen">
+	-->
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
+	
+    <link rel="stylesheet" href="css/sub-theme-default.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/carousel.css" type="text/css" media="screen">
+	<link href="css/signin.css" rel="stylesheet">
+	
+	<!-- Javascript 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	-->
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>			
+	
+</head>
+<style>
+	div.modal div.modal-backdrop {
+		z-index: 0;
+	}
+	#docLink a { font-size: large; color: #777272; margin-left:92%;}
+	.card-header button h3 { color: #a5a3a3 }
+	#vidTitle{ color: #777272 }	
+	
+</style>
+
+<script>
+	$(document).ready(function () {
+		$('#submit').click(function(){
+			var userid = $('#inputEmail').val();
+			var pwd = $('#inputPassword').val();
+			if (userid == 'zuser' && pwd == '123'){
+				$('#myModal').modal("show");
+				setTimeout(function(){ $('#loginModal').modal("hide")}, 10);
+				setTimeout(function(){ $('#myModal').modal("show")}, 900);
+			};
+		});	
+		
+		$('#docLink a').click(function(){
+			$('#loginModal').modal("show");
+		});
+		
+		//$('#vidTitle').on('click', function () {
+		//	$('.accordion .collapse').show(); 
+		//});
+	});
+</script>
+
+<body>
+
+	<!-- Google Drive Documents Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-lg">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title" id="myModalLabel">Please click on the document to open or download</h4>
+		  </div>
+		  <div class="modal-body">
+			<!-- <iframe src="https://drive.google.com/embeddedfolderview?id=0BzWfbLoyqHBcSHVnd2lPMEVjUVk&usp=sharing" width="100%" height="500px" frameborder="0"></iframe> -->	
+			<!-- <iframe src="https://drive.google.com/embeddedfolderview?id=0BzWfbLoyqHBcfmFZeDZNZmktcm5XejN3OGZQa0g3cjVrTlVEdWtYcGg3bEZXZG9IT0ZfMGc&usp=sharing" width="100%" height="500px" frameborder="0"></iframe> -->	
+			<!-- <iframe src="https://drive.google.com/folderview?id=0B4ip6BNyt1vLfkZ5M05qTWx2UjZPTlFBWTgzWHdOSk43VjRVcGsxWHhlTUplTklXWFg4aGM&usp=sharing" width="100%" height="500px" frameborder="0"></iframe>	 -->
+			<!--<iframe src="https://drive.google.com/embeddedfolderview?id=0B4ip6BNyt1vLfkZ5M05qTWx2UjZPTlFBWTgzWHdOSk43VjRVcGsxWHhlTUplTklXWFg4aGM&usp=sharing" width="100%" height="500px" frameborder="0"></iframe>-->
+			<iframe src="https://drive.google.com/embeddedfolderview?id=0BzWfbLoyqHBcUm8wY2hDTEx2U3M#list" width="100%" height="500px" frameborder="0"></iframe> 
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+	<!-- Login Modal -->
+	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-sm">
+		<div class="modal-content">
+		  <div class="modal-body">
+			<form class="form-signin">
+				<h2 class="form-signin-heading">Please sign in</h2>
+				<label for="inputEmail" class="sr-only">Email address</label>
+				<input type="email" id="inputEmail" class="form-control" placeholder="User id" required autofocus>
+				<br>
+				<label for="inputPassword" class="sr-only">Password</label>
+				<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+				<br>
+				<button class="btn btn-lg btn-primary btn-block" data-dismiss="modal" id="submit" type="submit">Sign in</button>
+			</form>	
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+	<div class="companyLogo">
+		<img src="img/logo.png">
+	</div>
+	
+	<div id="docLink">
+		<a href="#">Documents</a>
+	</div>
+	
+	<div id="myCarousel" class="carousel" data-ride="carousel">
+		<div class="carousel-inner" role="listbox">
+			<div class="item active">
+				<img src="img/indoor1_faded.png" alt="First slide">
+				<div class="container">
+					<div class="carousel-caption">
+						<h1 href="#" class="brand">Looking for us?</h1>
+						<br>
+						<h1>If you would like more information about Z Company or Zenithen</h1>
+						<h1>please call us or email</h1>
+						<h2>Office: 909-396-1407</h2>
+						<h2>Email: support@z-corporate.com</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <article style="background-color:#f1f1f1;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 intro-box">
+                    <div class="box">
+                        <h3>Pet Furniture</h3>
+                        <img src="img/pets7.png">
+                    </div>
+                </div>
+                <div class="col-md-3 intro-box">
+                    <div class="box">
+                        <h3>Outdoor Furniture</h3>
+                        <img src="img/outdoor6.png">
+                    </div>
+                </div>
+                <div class="col-md-3 intro-box">
+                    <div class="box">
+                        <h3>Indoor furniture</h3>
+                        <img src="img/indoor4.png">
+                    </div>
+                </div>
+                <div class="col-md-3 intro-box">
+                    <div class="box">
+                        <h3>Laundry furniture</h3>
+                        <img src="img/laundry3.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+	</article>
+	<br>
+	
+	<article>
+		<div class="container">
+			<h1 id="vidTitle">Videos</h1>
+			<div class="accordion" id="accordionExample">
+				<div class="card">
+						<div class="card-header" id="headingOne">
+							<button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+								<div>
+									<h3>Costco Products</h3> 
+								</div>
+							</button>
+						</div>
+						<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+						  <div class="card-body">
+							<div class="row text-center">
+								<div class="col-md-2 mr-3 mb-5">
+									<video width="180" height="120" poster="img/thumbnails/costco/video1.png" controls>
+										<source src="https://drive.google.com/uc?export=download&id=1y35T64ByvJFrX1Zn-dbp3DhVW56VW6kb" type='video/mp4'>
+									</video>
+								</div>
+								<div class="col-md-2 mr-3 mb-5">
+									<video width="180" height="120" poster="img/thumbnails/costco/video2.png" controls>
+										<source src="https://drive.google.com/uc?export=download&id=1DjmYQrTrDu7F1BJ0SlcwisnWVBbMdFHC" type='video/mp4'>
+									</video>
+								</div>
+								<div class="col-md-2 mr-3 mb-5">
+									<video width="180" height="120" poster="img/thumbnails/costco/video3.png" controls>
+										<source src="https://drive.google.com/uc?export=download&id=1PMZFaTNVnt3xTWyGf4KETWVkCv7IDZxP" type='video/mp4'>
+									</video>
+								</div>
+								<div class="col-md-2 mr-3 mb-5">
+									<video width="180" height="120" poster="img/thumbnails/costco/video4.png" controls>
+										<source src="https://drive.google.com/uc?export=download&id=1mSMjOVEO4l6PDNd8QkKnZJ4hlegYCyON" type='video/mp4'>
+									</video>
+								</div>
+								<div class="col-md-2 mr-3 mb-5">
+									<video width="180" height="120" poster="img/thumbnails/costco/video5.png" controls>
+										<source src="https://drive.google.com/uc?export=download&id=1w5tIu3EXMHRwLXoE5YyoltqRt9CNzJKY" type='video/mp4'>
+									</video>
+								</div>
+							</div>
+							<div class="row text-center">
+								<div class="col-md-2 mr-3">		
+									<video width="180" height="120" poster="img/thumbnails/costco/video6.png" controls>
+										<source src="https://drive.google.com/uc?export=download&id=1LaWWXzXlDZ9NZVVnomUiiXnFIa-9qUHN" type='video/mp4'>
+									</video>
+								</div>
+							</div>
+						</div>
+						</div>
+					  </div>
+					  <div class="card">
+						<div class="card-header" id="headingTwo">
+						  <h2 class="mb-2">
+							<button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+							  <h3>Indoor Products</h3> 
+							</button>
+						  </h2>
+						</div>
+						<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+						  <div class="card-body">
+							<div class="row text-center">
+								<div class="col-md-2 mr-3 mb-5">
+									<video width="180" height="120" poster="img/thumbnails/internal/video1.png" controls>
+										<source src="https://drive.google.com/uc?export=download&id=1EE_oXS3-B0Bvj0UiJyr3pBfiXfwmKR8c" type='video/mp4'>
+									</video>
+								</div>
+								<div class="col-md-2 mr-3 mb-5">
+									<video width="180" height="120" poster="img/thumbnails/internal/video2.png" controls>
+										<source src="https://drive.google.com/uc?export=download&id=17AthDD0AO0aUcRGrVDEDlnEpPmsChABf" type='video/mp4'>
+									</video>
+								</div>
+								<div class="col-md-2 mr-3 mb-5">
+									<video width="180" height="120" poster="img/thumbnails/internal/video3.png" controls>
+										<source src="https://drive.google.com/uc?export=download&id=1J5wJQICu7NiitGn3TA9Me13KfunE5LgY" type='video/mp4'>
+									</video>
+								</div>
+								<div class="col-md-2 mr-3 mb-5">
+									<video width="180" height="120" poster="img/thumbnails/internal/video4.png" controls>
+										<source src="https://drive.google.com/uc?export=download&id=1wbZAk4_UzKrdwz6ZGpPnxKnvPuIbp0W3" type='video/mp4'>
+									</video>
+								</div>
+								<div class="col-md-2 mr-3 mb-5">
+									<video width="180" height="120" poster="img/thumbnails/internal/video5.png" controls>
+										<source src="https://drive.google.com/uc?export=download&id=1G-xFvSZ8yuJwLpIYX8L1s-i-bO2aEvgX" type='video/mp4'>
+									</video>
+								</div>
+							</div>
+							<div class="row text-center">
+								<div class="col-md-2 mr-3">		
+									<video width="180" height="120" poster="img/thumbnails/internal/video6.png" controls>
+										<source src="https://drive.google.com/uc?export=download&id=1hILoEJsFIe2SEJyx1UGhKUpdbDAgwC9W" type='video/mp4'>
+									</video>
+								</div>
+							</div>
+						</div>
+						</div>
+					  </div>
+					  <div class="card">
+						<div class="card-header" id="headingThree">
+						  <h2 class="mb-2">
+							<button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+							  <h3>Outdoor Products</h3>
+							</button>
+						  </h2>
+						</div>
+						<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+							<div class="card-body">
+								<div class="row text-center">
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video1.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1cXxJzanpwqHLtsN24dVrE9nExsK3BBtA" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video2.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1PNtoTLqw-AG0zHNpYNq8pUiAyBDWvPu2" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video3.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1sdsiZwvALtpaX20GTpp-ra5Y-RTYJLSx" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video4.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=10j5eJyVm20Q_jWtrY7ejQSNaSU0aTQ4e" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video5.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1wNED8rWqcN-8s6qr4FB1b5Vxh8DwJnsF" type='video/mp4'>
+										</video>
+									</div>
+								</div>
+								<div class="row text-center">
+									<div class="col-md-2 mr-3 mb-5">		
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video6.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1uUoLmnDw1b-4K5jlIuyCW6iR7LGUaACj" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video7.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1swt7BlIQQcnF848GsDMSj-vu8gYx-dP-" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video8.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1ce9suYMYPdjzcN4Yrl2DIg227UmNhrMU" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video9.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1WwXB13iNOpEG4kByVJxMxZzx1KjIAh6N" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video10.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1dbAMQTZ2pPKEuuJxeV2zIb-AJFck_S_f" type='video/mp4'>
+										</video>
+									</div>
+								</div>
+								<div class="row text-center">
+									<div class="col-md-2 mr-3 mb-5">		
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video11.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1D7KwkRvfD1xJrOLTvIX0nWZ7g_OrZclS" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video12.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1ty2xZ1D25RdysfzZQRic0Z-kLfD0UMzR" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video13.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1Oy-6Gw0rcSRdo3L2DpywysAZcw3YBI2t" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video14.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1zsV_4zV2496PiaV-RxKSP9S2NGwECXB5" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video15.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1p1eaEQuydTX8IEfVoYxNhW62n8ECgQHk" type='video/mp4'>
+										</video>
+									</div>
+								</div>
+								<div class="row text-center">
+									<div class="col-md-2 mr-3 mb-5">		
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video16.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1j9MaL35kzbJCgxC_KvbMpt44lC6171iX" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video17.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1Ku0inRh0e9ZrvZIIiPM8wjJnTbQfCsc8" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video18.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1NCRippVjQfQRfSluep1QI_g3iknKcDX5" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video19.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1tkjKsFhF9aMmX2lu8c9eDk-VuuF7AkUx" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video20.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1gUaPmYXPnYktZcQAsPxbEiXgjYgI7taQ" type='video/mp4'>
+										</video>
+									</div>
+								</div>
+								<div class="row text-center">
+									<div class="col-md-2 mr-3 mb-5">		
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video21.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=10wngH0MtkfhkgWdUKkTzJ9wWzTPMjSWS" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video22.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1vN4tQqwcM9xddodGxK7gvV10GmFH0CvG" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video23.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=15fC_BLNoQsGUw5dlx4WbHn8NM1YswwSs" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video24.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1J7lFNkAjOf8WdYT0KDSUOndEgsPV7iXj" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video25.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1ELw5RK8WHgYfmrxMQYIy1s4359-tePk9" type='video/mp4'>
+										</video>
+									</div>
+								</div>
+								<div class="row text-center">
+									<div class="col-md-2 mr-3 mb-5">		
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video26.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1Pur4wHE2hJ7yAeiAdSLhw1D4FNPyoCg2" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video27.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1pRSMnS7o-t02ywK5HyhLM25thT3qrSt5" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video28.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=19Ncyua4QwnysoQoZzqE5i00AcMARpeJ3" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video29.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1fYpfwB7uKBCN5eSS2bD1SJmdCV3WLHSR" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3 mb-5">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video30.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1IojzfHVedksIPivl9nX3K1A4Jrun6Z9P" type='video/mp4'>
+										</video>
+									</div>
+								</div>
+								<div class="row text-center">
+									<div class="col-md-2 mr-3">		
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video31.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1uPdwDXcaPDNx_zpkEC0UyFdntTrIwIAd" type='video/mp4'>
+										</video>
+									</div>
+									<div class="col-md-2 mr-3">
+										<video width="180" height="120" poster="img/thumbnails/outdoor/video32.png" controls>
+											<source src="https://drive.google.com/uc?export=download&id=1wzT9k55CnbsQy9kVkAtA7imf2q0xk1RC" type='video/mp4'>
+										</video>
+									</div>						
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+	</article>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Sales/Marketing</h3>
+					<h4>Andy Frankel</h4>
+                </div>    
+                <div class="col-md-4">
+                    <h3>Administration</h3>
+					<h4>Danita Cleveland</h4>
+					<h4>Michelle Cervantes</h4>
+				</div>
+				<div class="col-md-4">
+					<h3>Shipping & Logistics</h3>
+					<h4>Judy Menezes</h4>
+				</div>
+			</div>
+		</div>
+		<div class="copyright">
+			<p style="float:left;">Copyright © 2015 ZCompany</p>
+		</div>		
+    </footer>
+			
+	</body>
+</html>
+
